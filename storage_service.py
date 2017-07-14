@@ -21,7 +21,8 @@ if __name__ == '__main__':
 
     file1 = r'.\files\test.png'
     file2 = r'.\files\a.html'
-    files = [os.path.abspath(file1), os.path.abspath(file2)]
+    file3 = r'.\files\笔记.xls'
+    files = [os.path.abspath(file1), os.path.abspath(file2), os.path.abspath(file3)]
     print(files)
     r = storage_service.post_with_files(payload, files)
     print(r.status_code)

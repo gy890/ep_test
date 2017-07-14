@@ -54,7 +54,9 @@ class EPClient(object):
     def post_with_files(self, data, files_path):
         multiple_files = []
         for k, fp in enumerate(files_path, 1):
-            multiple_files.append((str(k), (os.path.basename(fp), open(fp, 'rb'), 'Content-Type: %s' % get_content_type(fp))))
+            file = (str(k), (os.path.basename(fp), open(fp, 'rb'), 'Content-Type: %s' % get_content_type(fp)))
+            multiple_files.append(file)
+        print(multiple_files)
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',}
         res = requests.post(self.url, data=data, files=multiple_files, headers=headers)
