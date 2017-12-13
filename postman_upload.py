@@ -9,7 +9,7 @@ Created on 2017-07-12
 """
 import requests
 
-url = "http://192.168.30.101:10200/"
+url = "http://192.168.30.102:10200/"
 
 payload = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"\"; filename=\"Capture001.png\"\r\nContent-Type: image/png\r\n\r\n\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"action\"\r\n\r\nstoreFile\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
 headers = {

@@ -62,7 +62,7 @@ def login():
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
         'Content-Type': 'application/json'}
 
-    r = requests.post('http://192.168.30.101:10100', data=json.dumps(payload), headers=headers)
+    r = requests.post('http://192.168.30.102:10100', data=json.dumps(payload), headers=headers)
     # print('type(r): {}'.format(type(r)))
     # print('request headers: {}'.format(r.request.headers))
     # print('content-type: {}'.format(r.headers['content-type']))
