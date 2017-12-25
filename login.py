@@ -65,6 +65,7 @@ def login():
     r = requests.post('http://192.168.30.102:10100', data=json.dumps(payload), headers=headers)
     # print('type(r): {}'.format(type(r)))
     # print('request headers: {}'.format(r.request.headers))
+    print('request headers: {}'.format(r.request))
     # print('content-type: {}'.format(r.headers['content-type']))
     print('status_code: {}'.format(r.status_code))
     # print('response headers: {}'.format(r.headers))

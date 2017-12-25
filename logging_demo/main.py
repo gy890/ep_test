@@ -7,6 +7,7 @@ Created on 2017-12-19
 
 
 """
+import os
 import time
 import logging.config
 import timeit
@@ -23,9 +24,11 @@ def func2():
 
 
 if __name__ == '__main__':
+    if os.path.exists('mylog.log'):
+        os.remove('mylog.log')
     logging.config.fileConfig('logging.conf', defaults={'logfilename': 'mylog.log'})
     logger = logging.getLogger('sLogger')
-    print(logger)
+    print('1', logger)
     logger.info('Start at {}'.format(time.asctime()))
     func1()
     func2()
