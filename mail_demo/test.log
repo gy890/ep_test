@@ -1,0 +1,4 @@
+Tue, 26 Dec 2017 17:09:36 mail_test.py[line:81] DEBUG debug
+Tue, 26 Dec 2017 17:09:36 mail_test.py[line:82] INFO info
+Tue, 26 Dec 2017 17:09:36 mail_test.py[line:83] WARNING info
+Tue, 26 Dec 2017 17:09:40 mail_test.py[line:91] INFO success

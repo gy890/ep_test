@@ -7,6 +7,7 @@ Created on 2017-12-26
 
 
 """
+import logging
 import smtplib
 from email.header import Header
 from email.mime.multipart import MIMEMultipart
@@ -15,7 +16,7 @@ from email import encoders
 from email.mime.image import MIMEImage
 
 sender = 'ee890119a@163.com'
-to = ['878248393@qq.com', ]
+to = ['878248393@qq.com', 'gui.yun@e-ports.com']
 cc = ['2670042680@qq.com', 'ee890119a@163.com']
 bcc = ['yawn1122@aliyun.com', ]
 receiver = to + cc + bcc
@@ -26,7 +27,7 @@ password = 'AA1EE4CC7ac'
 
 # Create message container - the correct MIME type is multipart/alternative.
 msg = MIMEMultipart('alternative')
-msg['Subject'] = Header(subject , 'utf-8')
+msg['Subject'] = Header(subject, 'utf-8')
 msg['From'] = 'Tim<ee890119a@163.com>'  # 头部信息:名称<发件人的地址>
 msg['To'] = ','.join(to)  # 头部信息:收件人地址
 msg['Cc'] = ','.join(cc)
@@ -73,6 +74,12 @@ att3.add_header('Content-Disposition', 'attachment', filename=('gbk', '', '壁�
 # encoders.encode_base64(att)
 msg.attach(att3)
 
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%a, %d %b %Y %H:%M:%S',
+                    # filename='test.log',
+                    # filemode='w',
+                    )
 try:
     smtp = smtplib.SMTP()
     smtp.set_debuglevel(1)
@@ -80,6 +87,6 @@ try:
     smtp.login(username, password)
     smtp.sendmail(sender, receiver, msg.as_string())
     smtp.quit()
-    print('success')
+    logging.info('success')
 except smtplib.SMTPException as e:
-    print('Error: fail', e)
+    logging.warning('Error: fail', e)
